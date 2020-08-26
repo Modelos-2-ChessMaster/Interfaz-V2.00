@@ -1,0 +1,5 @@
+<div style="text-align:center" *ngIf="verBoton">
+  <h4 style="color: white"> Jugador1: <input type="text" #tbName id="nom1" /> Jugador2: <input type="text" #tbName2 id="nom2" /></h4><br>
+  <button  (click)="CrearTB(tbName.value,tbName2.value)">Jugar</button>
+</div>
+<router-outlet></router-outlet>

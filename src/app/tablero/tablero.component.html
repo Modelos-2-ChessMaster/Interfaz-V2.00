@@ -1,0 +1,17 @@
+<div style="text-align:left">
+    <h1 style="color: white">Jugador 1: {{jugador1.nombre}} Jugador 2: {{jugador2.nombre}}</h1>
+</div>
+<div style="text-align:center">
+    <button (click)="inicializarTablero()">Iniciar nueva partida</button><br>
+    <table id="Tablero" width="50%" style="margin: 0 auto;">
+        <tr *ngFor="let fila of filas">
+            <td (click)="seleccionarFicha(celda)" *ngFor="let celda of fila" class={{celda.clase}}>
+                <div>
+                    <p style="font-size: 150%;">
+                        {{ buscarFicha(celda) }}
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
