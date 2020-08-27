@@ -4,6 +4,8 @@ import { Pieza } from '../pieza'
 import { Celda } from '../Celda';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 import { ordenBlancas, ordenNegras, fichas } from './Fichas';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { ComunicacionComponent } from '../comunicacion/comunicacion.component';
 @Component({
   selector: 'app-tablero',
   templateUrl: './tablero.component.html',
@@ -13,6 +15,8 @@ export class TableroComponent implements OnInit {
 
   nom1 = this.route.snapshot.paramMap.get('id1')
   nom2 = this.route.snapshot.paramMap.get('id2')
+
+  Coordenadas:string;
 
   jugador1: Jugador = {
     id: 1,
@@ -50,7 +54,6 @@ export class TableroComponent implements OnInit {
   }
 
   fichas = fichas;
-
   contador: number = 0;
 
   posicionFichas = {
@@ -130,6 +133,7 @@ export class TableroComponent implements OnInit {
   seleccionarFicha(e): void {
     const fichaElegida = this.fichas.find(element => element.icono === this.buscarFicha(e));
     const posicion = e;
+    this.Coordenadas = e.ubicacion.x +""+ e.ubicacion.y;
     if (this.contador === 0) {
       this.contador = 1;
       this.fichaSeleccionada = fichaElegida;
@@ -139,6 +143,11 @@ export class TableroComponent implements OnInit {
       this.tablero[e.ubicacion.x][e.ubicacion.y] = this.fichaSeleccionada.icono;
       this.tablero[this.posicionSeleccionada.ubicacion.x][this.posicionSeleccionada.ubicacion.y] = [];
     }
-
   }
+
+  getCoordenada(){
+    alert(this.Coordenadas)
+    return this.Coordenadas;
+  }
+
 }

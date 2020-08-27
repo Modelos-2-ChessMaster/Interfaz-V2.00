@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\tablero"
   ],
-  "SelectedNode": "\\src\\app\\jugador.ts",
+  "SelectedNode": "\\src\\app\\tablero\\tablero.component.html",
   "PreviewInSolutionExplorer": false
 }
